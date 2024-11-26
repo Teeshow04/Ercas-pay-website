@@ -1,58 +1,60 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Password visibility toggle
-    const passwordInput = document.querySelector('.password-input');
-    const showPasswordButton = document.querySelector('.show-password');
-    
-    showPasswordButton.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        
-    });
 
-    // Form submission
-    const loginForm = document.querySelector('.login-form');
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+    const togglePassword = document.querySelector(".show-password");
+    const passwordIcon = togglePassword.querySelector("i");
+
+    console.log(togglePassword);
     
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const email = this.querySelector('input[type="email"]').value;
-        const password = this.querySelector('input[type="password"]').value;
-        
-        // Basic validation
-        if (!email || !password) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-        if (!isValidEmail(email)) {
-            alert('Please enter a valid email address');
-            return;
-        }
-        
-        // Here you would typically make an API call to your backend
-        console.log('Login attempt with:', { email });
-    });
+
+   // Toggle password visibility on button click
+   togglePassword.addEventListener("click", () => {
+    // console.log('test');
+    
+    // Check current input type
+    const isPasswordHidden = passwordInput.getAttribute("type") === "password";
+
+    // Toggle input type
+    passwordInput.setAttribute("type", isPasswordHidden ? "text" : "password");
+
+    // Toggle icon class
+    if (isPasswordHidden) {
+        passwordIcon.classList.remove("fa-eye"); // Remove "show" icon
+        passwordIcon.classList.add("fa-eye-slash"); // Add "hide" icon
+    } else {
+        passwordIcon.classList.remove("fa-eye-slash"); // Remove "hide" icon
+        passwordIcon.classList.add("fa-eye"); // Add "show" icon
+    }
+});
 });
 
-// Email validation helper
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+// Form Validation
+    loginForm.addEventListener("submit", function (event) {
+        let isValid = true;
 
-// Optional: Add loading state to button
-function setLoadingState(isLoading) {
-    const button = document.querySelector('.login-btn');
-    const buttonText = button.querySelector('span');
-    
-    if (isLoading) {
-        button.disabled = true;
-        buttonText.textContent = 'Logging in...';
-    } else {
-        button.disabled = false;
-        buttonText.textContent = 'Login';
-    }
-}
+        // Validate Email
+        if (!emailInput.value.trim()) {
+            emailError.classList.remove("hidden");
+            isValid = false;
+        } else {
+            emailError.classList.add("hidden");
+        }
 
+        // Validate Password
+        if (!passwordInput.value.trim()) {
+            passwordError.classList.remove("hidden");
+            isValid = false;
+        } else {
+            passwordError.classList.add("hidden");
+        }
 
+        // Prevent Submission if Invalid
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
 

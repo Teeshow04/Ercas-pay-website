@@ -95,29 +95,41 @@ body {
     border-color: #ff6b00;
     box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
 }
+
+/* Error State for Inputs */
+.error-message {
+ font-size: 14px;
+color: #dc2626;
+display: none;
+}
+.error-message.hidden {
+    display: none;
+}
+.login-btn.loading {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
 .password-container {
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .show-password {
     position: absolute;
-    right: 10px;
-    top: 52%;
+    right: 12px;
+    top: 50%;
+    /* transform: translateY(-50%); */
     background: none;
     border: none;
     cursor: pointer;
     color: #666;
     font-size: 15px;
 }
-.reset-password-link {
-    display:block;
-    text-align: right;
-    color: #333;
-    text-decoration: none;
-    font-size: 15px;
-    margin-bottom: 70px;
+
+.fa-eye-slash {
+    color: #999;
 }
+
 
 .login-btn {
     width: 100%;
@@ -135,6 +147,15 @@ body {
     background-color: #e65100;
 }
 
+.reset-password-link {
+    display:block;
+    text-align: right;
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    margin-bottom: 70px;
+    margin-top: 20px;
+}
 .register-text {
     text-align: center;
     color: #666;

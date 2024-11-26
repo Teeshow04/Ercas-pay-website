@@ -27,23 +27,27 @@
                 <h1>Welcome Back!</h1>
                 <p>Login to your account.</p>
             </div>
-            <form class="login-form">
+            <form class="login-form"  id="loginForm"> 
                 <div class="form-group">
                     <label for="email"> Email address</label>
-                    <input type="email" name="email" class="form-input">
+                    <input type="email"  id="email"  name="email" class="form-input" autocomplete="email" required>
+                    <span class="error-message hidden"  id="emailForm">Required</span>
                 </div>
 
                 <div class="form-group">
                     <div class="password-container">
                         <label for="password">password</label>
-                        <input type="password" name="password" class="form-input  password-input">
-                        <button type="button" class="show-password">   <i class="fas fa-eye"></i></button>
+                        <input type="password" name="password" class="form-input  password-input" id="password" autocomplete="current-password" required>
+                        <button type="button" class="show-password" aria-label="Toggle password visibility"><i class="fas fa-eye"></i></button>
                     </div>
+                    <span class="error-message hidden" id="passwordEror">Required</span>
                     <a href="reset-password" class="reset-password-link">Reset Password?</a>
                 </div>
-
+                      <!-- Messages container for error/success messages -->
+                <div class="messages-container"></div>
                 <div class="form-group">
-                    <button class="login-btn"><span>Login</span></button>
+                    <button type="submit"        
+                    class="login-btn"><span>Login ></span></button>
                     <p class="register-text">Don't have an account?
                         <a href="/Create account/index.html" class="register-link">Create Account</a>
                     </p>
@@ -51,6 +55,7 @@
             </form>
         </div>
     </section>
+    <script src="app.js"></script>
 </body>
 
 </html>
