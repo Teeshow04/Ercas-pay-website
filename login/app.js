@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("loginForm");
     const emailInput = document.getElementById("email");
@@ -8,53 +7,51 @@ document.addEventListener("DOMContentLoaded", function () {
     const togglePassword = document.querySelector(".show-password");
     const passwordIcon = togglePassword.querySelector("i");
 
-    console.log(togglePassword);
-    
+    // Ensure error messages are hidden by default
+    emailError.classList.add("hidden");
+    passwordError.classList.add("hidden");
 
-   // Toggle password visibility on button click
-   togglePassword.addEventListener("click", () => {
-    // console.log('test');
-    
-    // Check current input type
-    const isPasswordHidden = passwordInput.getAttribute("type") === "password";
+    // Toggle password visibility
+    togglePassword.addEventListener("click", () => {
+        const isPasswordHidden = passwordInput.getAttribute("type") === "password";
 
-    // Toggle input type
-    passwordInput.setAttribute("type", isPasswordHidden ? "text" : "password");
+        // Toggle input type
+        passwordInput.setAttribute("type", isPasswordHidden ? "text" : "password");
 
-    // Toggle icon class
-    if (isPasswordHidden) {
-        passwordIcon.classList.remove("fa-eye"); // Remove "show" icon
-        passwordIcon.classList.add("fa-eye-slash"); // Add "hide" icon
-    } else {
-        passwordIcon.classList.remove("fa-eye-slash"); // Remove "hide" icon
-        passwordIcon.classList.add("fa-eye"); // Add "show" icon
-    }
-});
-});
+        // Update the icon
+        passwordIcon.classList.toggle("fa-eye", !isPasswordHidden);
+        passwordIcon.classList.toggle("fa-eye-slash", isPasswordHidden);
+    });
 
-// Form Validation
+    // Handle form submission
     loginForm.addEventListener("submit", function (event) {
-        let isValid = true;
+        event.preventDefault(); // Prevent the form from submitting
 
-        // Validate Email
+        let formIsValid = true;
+
+        // Validate email
         if (!emailInput.value.trim()) {
+            emailError.textContent = "Required";
             emailError.classList.remove("hidden");
-            isValid = false;
+            formIsValid = false;
         } else {
             emailError.classList.add("hidden");
         }
 
-        // Validate Password
+        // Validate password
         if (!passwordInput.value.trim()) {
+            passwordError.textContent = "Required";
             passwordError.classList.remove("hidden");
-            isValid = false;
+            formIsValid = false;
         } else {
             passwordError.classList.add("hidden");
         }
 
-        // Prevent Submission if Invalid
-        if (!isValid) {
-            event.preventDefault();
+        // Proceed if the form is valid
+        if (formIsValid) {
+            console.log("Form is valid. Proceed with login.");
+            // Add your login logic here
         }
     });
+});
 
