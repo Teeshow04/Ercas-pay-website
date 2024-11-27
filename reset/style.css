@@ -167,3 +167,19 @@ body {
     color: #666;
     font-size: 15px;
 }
+
+@media (max-width: 768px)  {
+    .reset-section{ 
+        padding: 20px;
+        width: 1000px;
+        
+    }
+    .reset-logo{
+        display: none;
+    }
+    
+    .reset-btn {
+        width: 685px;
+        padding: 20px;
+    }
+}
