@@ -7,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #fff;
     font-family: 'Roboto',
        ' Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -24,6 +24,13 @@ body {
     margin: 20px;
     border: 25px  solid  #000;
     border-radius: 25px;
+}
+.register-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    border-radius: 15px;
 }
 .register-logo::before {
     content: " "; /* Create a pseudo-element for the gradient */
@@ -60,11 +67,172 @@ body {
 /* form section */
 .register-section {
     width: 80%;
-    padding: 100px  30px  30px;
+    padding: 35px  30px  30px;
     display: flex;
     flex-direction: column;
 }
 .register-section img {
      width: 100px;
     margin-bottom: 35px;
+}
+.register-header {
+    margin-bottom: 35px;
+}
+.register-header h1 {
+    font-size: 24px;
+    font-weight: 200;
+    color: #1a1a1a;
+}
+.register-header p {
+    color: #666;
+}
+
+.register-form {
+    max-width: 720px;
+}
+.register-group label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px ;
+    color: #555;
+    font-size: 14px;
+}
+.register-input {
+    width: 100%;
+    padding: 17px   8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+.register-input:focus {
+    outline: none;
+    border-color: #ff6b00;
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
+}
+/* .hidden { */
+    display: none; /* Hide elements by default */
+}
+
+.error-message {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+}
+
+.register-btn.loading {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+.password-container {
+    position: relative;
+}
+
+.show-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 15px;
+}
+
+.fa-eye-slash {
+    color: #999;
+}
+ 
+/* acccept terms and codition */
+.terms-container {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox {
+    width: 23px;
+    height: 23px; 
+    border: 1px solid #ff6b00; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    appearance: none; 
+    display: inline-block;
+}
+
+.
+.checkbox-wrapper input[type="checkbox"]:checked + .checkbox-wrapper {
+    border-color: #007bff; /* Change border color on check */
+}
+.terms-container label {
+    cursor: pointer;
+}
+.terms-link {
+    color: #ff6b00;
+    text-decoration: none;
+}
+.privacy-link  {
+    color: #ff6b00;
+    text-decoration: none;
+}
+.terms-container a {
+    text-decoration: none;
+}
+
+.register-btn {
+    width: 100%;
+    background: #ff6b00;
+    padding: 17px  8px;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 8px ;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s  ease;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.register-btn:hover {
+    background-color: #e65100;
+}
+
+.login-link {
+    color: #ff6b00;
+    text-decoration: none;
+}
+
+.login-text {
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+}
+.register-link:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px)  {
+    .register-section{ 
+        padding: 20px;
+        width: 1000px;
+        
+    }
+    .register-logo{
+        display: none;
+    }
+    
+    .register-btn {
+        width: 685px;
+        padding: 20px;
+    }
 }

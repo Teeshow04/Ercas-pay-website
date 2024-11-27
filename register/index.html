@@ -25,7 +25,7 @@
             <img src="/Assets/logo.png" alt="ercas pay logo">
             <div class="register-header">
                 <h1>Create Account</h1>
-                <p>create an account.</p>
+                <p>Create an account.</p>
             </div>
             <form class="register-form" id="createtForm">
                 <div class="register-group">
@@ -84,7 +84,8 @@
                     <div class="password-container">
                         <label for="password">Password</label>
                         <input type="password" name="password" class="register-input password-input" id="password"
-                            autocomplete="current-password">
+                            autocomplete="current-password"
+                            placeholder="Enter password">
                         <button type="button" class="show-password" aria-label="Toggle password visibility"><i
                                 class="fas fa-eye"></i></button>
                     </div>
@@ -94,12 +95,16 @@
 
                 </div>
 
-                <div class="register-group">
-                    <input type="checkbox" id="agree-checkbox" name="agree">
+                <div class="terms-container">
+                    <input type="checkbox" id="agree-checkbox"  class="checkbox"
+                    name="agree">
+                  <div class="checkbox-wrapper">
                     <label for="agree-checkbox">
+                  </div>
                         By checking this box, you agree to our
-                        <a href="https://example.com/terms" target="_blank">Terms of Service</a> and 
-                        <a href="https://example.com/privacy" target="_blank">Privacy Policy</a>.
+                        <a href="https://example.com/terms" class="terms-link"  
+                        target="_blank">Terms of Service</a> and 
+                        <a href="https://merchant.ercaspay.com/ercas-privacy-policy.pdf" class="privacy-link" target="_blank">Privacy Policy</a>.
                     </label>
                 </div>
 
