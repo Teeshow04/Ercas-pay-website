@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account Dashboard</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
 
     <link rel="icon" type="img/png" href="/Assets/favicon2.png">
@@ -32,88 +32,86 @@
                     <label for="name">First name</label>
                     <input type="name" id="name" name="name" class="register-input" autocomplete="name" required
                         placeholder="Enter your first name">
-                    <span class="error-message hidden" id="nameForm">Required</span>
-                    <!-- error message if field  is left blank --> if
-                    <span class="error-message-two hidden" id="nameForm-two">Invalid First Name. Only alphabets are
-                        allowed</span> <!-- error message if invalid name is inputed -->
-                    <span class="error-message-three hidden" id="nameForm-three">First name must be at least 3
-                        characters</span> <!-- error message if less than 3 lettres are inputed -->
+                    <span class="error-message hidden" id="name-required">Required</span>
+                    <span class="error-message hidden" id="name-invalid">Invalid First Name. Only alphabets are
+                        allowed</span>
+                    <span class="error-message hidden" id="name-length">First name must be at least 3 characters</span>
                 </div>
 
                 <div class="register-group">
                     <label for="name">Last name</label>
                     <input type="name" id="name" name="name" class="register-input" autocomplete="name" required
                         placeholder="Enter your last name">
-                    <span class="error-message hidden" id="nameForm">Required</span>
-                    <!-- error message if field  is left blank --> if
-                    <span class="error-message-two hidden" id="nameForm-two">Invalid Last Name. Only alphabets are
-                        allowed</span> <!-- error message if invalid name is inputed -->
-                    <span class="error-message-three hidden" id="nameForm-three">Last name must be at least 3
-                        characters</span> <!-- error message if less than 3 lettres are inputed -->
+                    <span class="error-message hidden" id="name-required">Required</span>
+                    <span class="error-message hidden" id="name-invalid">Invalid Last Name. Only alphabets are
+                        allowed</span>
+                    <span class="error-message hidden" id="name-length">Last name must be at least 3 characters</span>
                 </div>
 
                 <div class="register-group">
                     <label for="number"> Phone number</label>
                     <input type="number" id="number" name="number" class="register-input" autocomplete="number" required
                         placeholder="Enter your Phone Number">
-                    <span class="error-message hidden" id="numberForm">Required</span>
-                    <!-- error message if field  is left blank -->
-                    <span class="error-message hidden" id="numberForm-two">Phone number must be at least 11
+                    <span class="error-message hidden" id="phone-number-required">Required</span>
+                    <span class="error-message hidden" id="phone-number-invalid">Phone number must be at least 11
                         characters</span>
-                    <!-- error message if less or more than 11 numbers  are inputed in the field -->
                 </div>
 
                 <div class="register-group">
                     <label for="email"> Work Email Address</label>
                     <input type="email" id="email" name="email" class="register-input" autocomplete="email" required
                         placeholder="Enter your work Email">
-                    <span class="error-message hidden" id="emailForm">Required</span>
-                    <span class="error-message hidden" id="emailForm-two">Invalid Email Address</span>
+                    <span class="error-message hidden" id="email-required">Required</span>
+                    <span class="error-message hidden" id="email-invalid">Invalid Email Address</span>
                 </div>
 
                 <div class="register-group">
-                    <label for="country"> Country of Origin</label>
-                    <select id="country-select" onchange="navigateToCountry()">
-                        <option value="" selected disabled hidden>Choose Country</option>
-                        <option value="ng">Nigeria</option>
-                    </select>
-                    <span class="error-message hidden" id="emailForm">Country is required</span>
+                    <label for="country-select">Country of Origin</label>
+
+                    <div class="country-dropdown">
+                        <!-- Dropdown Header -->
+                        <div class="dropdown-selected">Choose Country
+                            <span class="nav-icon">▼</span> <!-- Navigation icon -->
+                        </div>
+                        <!-- Dropdown Options -->
+                        <ul class="dropdown-options">
+                            <li class="dropdown-item" data-value="ng">
+                                <span class="check-icon">✔</span> Nigeria
+                            </li>
+                        </ul>
+                    </div>
+                    <span class="error-message hidden" id="country-required">Country is required</span>
                 </div>
 
                 <div class="register-group">
                     <div class="password-container">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="register-input password-input" id="password"
-                            autocomplete="current-password"
-                            placeholder="Enter password">
+                        <input type="password" name="password" class="register-input" id="password"
+                            autocomplete="current-password" placeholder="Enter password">
                         <button type="button" class="show-password" aria-label="Toggle password visibility"><i
                                 class="fas fa-eye"></i></button>
                     </div>
-                    <span class="error-message hidden" id="passwordError">Required</span>
-                    <span class="error-message hidden" id="passwordError-two"> Invalid Password. Password must contain
-                        at least one uppercase letter, one lowercase letter, one number and one special character</span>
-
+                    <span class="error-message hidden" id="password-required">Required</span>
+                    <span class="error-message hidden" id="password-invalid">Password must contain at least one
+                        uppercase letter, one lowercase letter, one number, and one special character</span>
                 </div>
 
                 <div class="terms-container">
-                    <input type="checkbox" id="agree-checkbox"  class="checkbox"
-                    name="agree">
-                  <div class="checkbox-wrapper">
-                    <label for="agree-checkbox">
-                  </div>
-                        By checking this box, you agree to our
-                        <a href="https://example.com/terms" class="terms-link"  
-                        target="_blank">Terms of Service</a> and 
-                        <a href="https://merchant.ercaspay.com/ercas-privacy-policy.pdf" class="privacy-link" target="_blank">Privacy Policy</a>.
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="agree-checkbox" class="checkbox">
+                        <label for="agree-checkbox" class="checkbox-label"></label>
+                    </div>
+                    <label for="agree-checkbox">By checking this box, you agree to our
+                        <a href="https://example.com/terms" class="terms-link" target="_blank">Terms of Service</a> and
+                        <a href="https://merchant.ercaspay.com/ercas-privacy-policy.pdf" class="privacy-link"
+                            target="_blank">Privacy Policy</a>.
                     </label>
                 </div>
 
                 <div class="register-group">
-                    <button type="submit" class="register-btn" disabled><span>Create Account ></span></button>
-                    <p class="login-text">
-                        Already have account?
-                        <a href="/login/index.html" class="login-link">Login</a>
-                    </p>
+                    <button type="submit" class="register-btn" disabled>Create Account</button>
+                    <p class="login-text">Already have an account? <a href="/login/index.html"
+                            class="login-link">Login</a></p>
                 </div>
             </form>
         </div>

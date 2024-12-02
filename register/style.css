@@ -6,7 +6,6 @@
 }
 
 body {
-    min-height: 100vh;
     background-color: #fff;
     font-family: 'Roboto',
        ' Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -18,20 +17,14 @@ body {
 }
 .register-logo {
     position: relative;
-    width: 80%;
+    width: 95%;
     background-color: #000000;
     overflow: hidden;
     margin: 20px;
     border: 25px  solid  #000;
     border-radius: 25px;
 }
-.register-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    border-radius: 15px;
-}
+
 .register-logo::before {
     content: " "; /* Create a pseudo-element for the gradient */
     position: absolute;
@@ -42,6 +35,14 @@ body {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
     z-index: 1; /* Place the gradient below the text but above the image */
 }
+.register-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    border-radius: 15px;
+}
+
 .register-img {
     width: 100%;
     height: 100%;
@@ -66,25 +67,27 @@ body {
 
 /* form section */
 .register-section {
-    width: 80%;
-    padding: 35px  30px  30px;
+    width: 100%;
+    padding: 30px  25px  20px;
     display: flex;
     flex-direction: column;
 }
 .register-section img {
      width: 100px;
-    margin-bottom: 35px;
+    margin-bottom: 28px;
 }
 .register-header {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
+    /* padding-bottom: 20px; */
 }
 .register-header h1 {
     font-size: 24px;
-    font-weight: 200;
-    color: #1a1a1a;
+    font-weight: 300;
+    color: #444;
 }
 .register-header p {
-    color: #666;
+    color: #777;
+    font-size: 14px;
 }
 
 .register-form {
@@ -92,17 +95,18 @@ body {
 }
 .register-group label {
     display: block;
-    margin-bottom: 5px;
-    margin-top: 5px ;
-    color: #555;
+    margin-bottom: 7px;
+    margin-top: 20px ;
+    color: #666;
     font-size: 14px;
 }
 .register-input {
-    width: 100%;
+    width: 78%;
     padding: 17px   8px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     font-size: 13px;
+    color: #888;
     transition: all 0.3s ease;
 }
 .register-input:focus {
@@ -110,8 +114,47 @@ body {
     border-color: #ff6b00;
     box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
 }
-/* .hidden { */
-    display: none; /* Hide elements by default */
+.country-dropdown {
+    position: relative;
+    width: 78%;
+    padding: 17px   8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #888;
+    transition: all 0.3s ease;
+}
+.dropdown-selected {
+    cursor: pointer;
+    color: #888;
+}
+.dropdown-options {
+    display: none;
+    list-style: none;
+    margin: 20px  -8px;
+    padding: 5px   8px;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 1000;
+}
+.dropdown-item {
+padding: 7px;
+    background-color: #f9f9f9;  
+}
+.check-icon {
+    margin-right: 10px;
+    color: #444;
+}
+
+.error-message.visible {
+    display: block; 
+}
+
+
+.hidden {
+    display: none; 
 }
 
 .error-message {
@@ -121,23 +164,26 @@ body {
     font-weight: 400;
     transition: opacity 0.3s ease;
 }
-
+.error-message.visible {
+    display: block; 
+}
 .register-btn.loading {
     opacity: 0.8;
     cursor: not-allowed;
 }
-.password-container {
-    position: relative;
+.password-container { 
+ position: relative; 
+ display: inline;
 }
 
 .show-password {
     position: absolute;
     right: 12px;
-    top: 50%;
+    top: 70%;
     background: none;
     border: none;
     cursor: pointer;
-    color: #666;
+    color: #999;
     font-size: 15px;
 }
 
@@ -146,8 +192,9 @@ body {
 }
  
 /* acccept terms and codition */
+
 .terms-container {
-    margin: 20px 0;
+    margin: 20px 0   70px ;
     font-size: 14px;
     color: #999;
     display: flex;
@@ -163,11 +210,7 @@ body {
     cursor: pointer; 
     appearance: none; 
     display: inline-block;
-}
-
-.
-.checkbox-wrapper input[type="checkbox"]:checked + .checkbox-wrapper {
-    border-color: #007bff; /* Change border color on check */
+    
 }
 .terms-container label {
     cursor: pointer;
@@ -185,7 +228,7 @@ body {
 }
 
 .register-btn {
-    width: 100%;
+    width: 80%;
     background: #ff6b00;
     padding: 17px  8px;
     color: #f5f5f5;
@@ -194,8 +237,8 @@ body {
     font-size: 15px;
     cursor: pointer;
     transition: background-color 0.3s  ease;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    /* margin-bottom: 10px; */
+    /* margin-top: 20px; */
 }
 .register-btn:hover {
     background-color: #e65100;
@@ -230,7 +273,13 @@ body {
     .register-logo{
         display: none;
     }
-    
+    .register-input {
+        width: 100%;
+    }
+    .country-input {
+        width: 100%;
+    }
+
     .register-btn {
         width: 685px;
         padding: 20px;
