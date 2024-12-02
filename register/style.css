@@ -12,10 +12,10 @@ body {
 }
 
 .register-container {
-    min-height: 100vh;
+  height: 100vh;
     display: flex;
 }
-.register-logo {
+ .register-logo {
     position: relative;
     width: 95%;
     background-color: #000000;
@@ -33,7 +33,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
-    z-index: 1; /* Place the gradient below the text but above the image */
+    z-index: 1; 
 }
 .register-logo img {
     width: 100%;
@@ -71,6 +71,8 @@ body {
     padding: 30px  25px  20px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
+    overflow-x: auto;
 }
 .register-section img {
      width: 100px;
@@ -78,7 +80,6 @@ body {
 }
 .register-header {
     margin-bottom: 15px;
-    /* padding-bottom: 20px; */
 }
 .register-header h1 {
     font-size: 24px;
@@ -231,7 +232,7 @@ padding: 7px;
 .checkbox:checked::after {
     content: "✔"; /* Unicode checkmark */
     font-size: 16px;
-    padding: 2px;
+padding: 3px ;
     color: white; /* White checkmark */
     width: 100%;
     height: 100%;
@@ -263,18 +264,17 @@ padding: 7px;
     transition: background-color 0.3s  ease;
     margin-bottom: 10px;
 }
+.register-btn:hover {
+    background-color: #e65100;
+}
+
 .register-btn:disabled {
     background-color: #ddd;
-    cursor: not-allowed;
+    cursor: default;
 }
 
 .register-btn:disabled:hover {
     background-color: #ddd;
-}
-
-
-.register-btn:hover {
-    background-color: #e65100;
 }
 
 .login-link {
@@ -283,9 +283,10 @@ padding: 7px;
 }
 
 .login-text {
-    text-align: center;
+margin-left: 150px;
     color: #666;
     font-size: 15px;
+    padding-left: 20px;
 }
 .register-link:hover {
     text-decoration: underline;
@@ -309,12 +310,15 @@ padding: 7px;
     .register-input {
         width: 100%;
     }
-    .country-input {
+    .country-dropdown{
         width: 100%;
     }
 
     .register-btn {
         width: 685px;
         padding: 20px;
+    }
+    .login-text{
+        margin-left: 35%;
     }
 }
