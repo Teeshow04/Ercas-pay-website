@@ -110,7 +110,20 @@ body {
     color: #888;
     transition: all 0.3s ease;
 }
+
+input[type="number"] {
+    -moz-appearance: textfield; /* For Firefox */
+    -webkit-appearance: none; /* For Chrome, Safari, and newer Edge */
+    appearance: none; /* For modern browsers */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0; 
+}
 .register-input:focus {
+    appearance: none;
     outline: none;
     border-color: #ff6b00;
     box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
@@ -211,12 +224,11 @@ padding: 7px;
     height: 30px;
     border-radius: 8px;
     background-color: transparent;
-    border: 2px solid #007BFF;
+    border: 2px solid  #007BFF;
     cursor: pointer;
-    /* position: relative; */
     transition: all 0.3s ease;
-}
 
+}
 .checkbox {
     border: 1px solid  #ff6b00;
     width: 20px;
@@ -229,7 +241,7 @@ padding: 7px;
     background-color: #ff6b00;
 }
 
-.checkbox:checked::after {
+ .checkbox:checked::after { 
     content: "✔"; /* Unicode checkmark */
     font-size: 16px;
 padding: 3px ;
