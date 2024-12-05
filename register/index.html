@@ -27,33 +27,32 @@
                 <h1>Create Account</h1>
                 <p>Create an account.</p>
             </div>
-            <form class="register-form" id="createtForm">
+            <form class="register-form" id="createtForm" novalidate>
                 <div class="register-group">
                     <label for="name">First name</label>
-                    <input type="name" id="name" name="name" class="register-input" autocomplete="name" required
+                    <input type="text" id="first-name" name="first-name" class="register-input" autocomplete="name" required
                         placeholder="Enter your first name">
-                    <span class="error-message hidden" id="name-required">Required</span>
-                    <span class="error-message hidden" id="name-invalid">Invalid First Name. Only alphabets are
-                        allowed</span>
-                    <span class="error-message hidden" id="name-length">First name must be at least 3 characters</span>
+                    
+                        <br><span class="error-message hidden" id="first-name-required">Required</span><br>
+                    <span class="error-message hidden" id="first-name-invalid">Invalid First Name. Only alphabets are allowed</span> 
+                    <br><span class="error-message hidden" id="first-name-length">First name must be at least 3 characters</span>
                 </div>
-
+                
                 <div class="register-group">
-                    <label for="name">Last name</label>
-                    <input type="name" id="name" name="name" class="register-input" autocomplete="name" required
+                    <label for="last-name">Last name</label>
+                    <input type="text" id="last-name" name="last-name" class="register-input" autocomplete="name" required
                         placeholder="Enter your last name">
-                    <span class="error-message hidden" id="name-required">Required</span>
-                    <span class="error-message hidden" id="name-invalid">Invalid Last Name. Only alphabets are
-                        allowed</span>
-                    <span class="error-message hidden" id="name-length">Last name must be at least 3 characters</span>
+                    <br><span class="error-message hidden" id="last-name-required">Required</span>
+                    <br><span class="error-message hidden" id="last-name-invalid">Invalid Last Name. Only alphabets are allowed</span>
+                    <br><span class="error-message hidden" id="last-name-length">Last name must be at least 3 characters</span>
                 </div>
-
+                
                 <div class="register-group">
                     <label for="number"> Phone number</label>
                     <input type="number" id="number" name="number" class="register-input" autocomplete="number" required
                         placeholder="Enter your Phone Number">
-                    <span class="error-message hidden" id="phone-number-required">Required</span>
-                    <span class="error-message hidden" id="phone-number-invalid">Phone number must be at least 11
+                    <br><span class="error-message hidden" id="required">Required</span>
+                    <br><span class="error-message hidden" id="phone-number-invalid">Phone number must be at least 11
                         characters</span>
                 </div>
 
@@ -61,8 +60,9 @@
                     <label for="email"> Work Email Address</label>
                     <input type="email" id="email" name="email" class="register-input" autocomplete="email" required
                         placeholder="Enter your work Email">
-                    <span class="error-message hidden" id="email-required">Required</span>
-                    <span class="error-message hidden" id="email-invalid">Invalid Email Address</span>
+                    <br><span class="error-message hidden" id="required">Required</span>
+                    <br><span class="error-message hidden" id="email-invalid">Invalid Email Address</span>
+
                 </div>
 
                 <div class="register-group">
@@ -80,7 +80,7 @@
                             </li>
                         </ul>
                     </div>
-                    <span class="error-message hidden" id="country-required">Country is required</span>
+                    <span class="error-message hidden" id="required">Country is required</span>
                 </div>
 
                 <div class="register-group">
@@ -91,9 +91,8 @@
                         <button type="button" class="show-password" aria-label="Toggle password visibility"><i
                                 class="fas fa-eye"></i></button>
                     </div>
-                    <span class="error-message hidden" id="password-required">Required</span>
-                    <span class="error-message hidden" id="password-invalid">Password must contain at least one
-                        uppercase letter, one lowercase letter, one number, and one special character</span>
+                    <br><span class="error-message hidden" id="required">Required</span>
+                    <br><span class="error-message hidden" id="password-invalid">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character</span>
                 </div>
 
                 <div class="terms-container">

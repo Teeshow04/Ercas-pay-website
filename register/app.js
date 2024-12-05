@@ -1,104 +1,207 @@
-// Select DOM elements
-const checkbox = document.getElementById("agree-checkbox-hidden");
-const createAccountBtn = document.querySelector(".register-btn");
-const form = document.getElementById("createtForm");
-const inputs = document.querySelectorAll(".register-input");
-const dropdownSelected = document.querySelector(".dropdown-selected");
-const dropdownOptions = document.querySelector(".dropdown-options");
-const countryRequiredMessage = document.getElementById("country-required");
-const errorMessages = document.querySelectorAll(".error-message");
 
-// Validation regex patterns
-const namePattern = /^[A-Za-z]+$/;
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+document.addEventListener("DOMContentLoaded", function () {
+    const checkbox = document.getElementById("agree-checkbox-hidden");
+    const checkboxWrapper = document.getElementById("checkbox-wrapper");
+    const createAccountBtn = document.querySelector(".register-btn");
+    const form = document.getElementById("createtForm");
+    const showPasswordBtn = document.querySelector(".show-password");
+    const passwordInput = document.getElementById("password");
+    const firstNameInput = document.getElementById("first-name");
+    const lastNameInput = document.getElementById("last-name");
+    const phoneInput = document.getElementById("number");
+    const emailInput = document.getElementById("email");
+    const dropdownSelected = document.querySelector(".dropdown-selected");
+    const dropdownOptions = document.querySelector(".dropdown-options");
 
-// Enable the "Create Account" button when the checkbox is checked
-checkbox.addEventListener("change", () => {
-    createAccountBtn.disabled = !checkbox.checked;
-});
+    // Regex patterns
+    const namePattern = /^[A-Za-z]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-// Show validation errors when trying to submit an empty form
-form.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent form submission
+    // Helper function to toggle label color
+    function toggleLabelError(input, hasError) {
+        const label = input.previousElementSibling; // Select the corresponding <label>
+        label.style.color = hasError ? "#dc2626" : "#666"; // Red for error, gray for normal
+    }
 
-    let allValid = true; // To track form validity
+    // Enable button and toggle checkbox wrapper border
+    checkbox.addEventListener("change", function () {
+        checkboxWrapper.style.borderColor = checkbox.checked ? "#007BFF" : "transparent";
+        createAccountBtn.disabled = !checkbox.checked;
+    });
 
-    inputs.forEach((input) => {
-        const errorMessage = document.getElementById(`${input.id}-required`);
-        const value = input.value.trim();
+    // Toggle password visibility
+    showPasswordBtn.addEventListener("click", function () {
+        const isPassword = passwordInput.type === "password";
+        passwordInput.type = isPassword ? "text" : "password";
+        this.querySelector("i").classList.toggle("fa-eye");
+        this.querySelector("i").classList.toggle("fa-eye-slash");
+    });
 
-        if (!value) {
-            errorMessage.classList.add("visible");
-            allValid = false;
-        } else {
-            errorMessage.classList.remove("visible");
+    // Validation functions
+    function validateFirstName() {
+        const value = firstNameInput.value.trim();
+        const requiredMessage = document.getElementById("first-name-required");
+        const invalidMessage = document.getElementById("first-name-invalid");
+        const lengthMessage = document.getElementById("first-name-length");
+
+        // Reset visibility and label color
+        requiredMessage.classList.add("hidden");
+        invalidMessage.classList.add("hidden");
+        lengthMessage.classList.add("hidden");
+        toggleLabelError(firstNameInput, false);
+
+        // Show appropriate error messages
+        if (value === "") {
+            requiredMessage.classList.remove("hidden");
+            toggleLabelError(firstNameInput, true);
+        } else if (!namePattern.test(value)) {
+            invalidMessage.classList.remove("hidden");
+            toggleLabelError(firstNameInput, true);
+        } else if (value.length < 3) {
+            lengthMessage.classList.remove("hidden");
+            toggleLabelError(firstNameInput, true);
         }
 
-        // Additional validations
-        if (input.id === "name") {
-            if (value.length < 3) {
-                document.getElementById(`${input.id}-length`).classList.add("visible");
-                allValid = false;
-            } else {
-                document.getElementById(`${input.id}-length`).classList.remove("visible");
-            }
+        return value !== "" && namePattern.test(value) && value.length >= 3;
+    }
 
-            if (!namePattern.test(value)) {
-                document.getElementById(`${input.id}-invalid`).classList.add("visible");
-                allValid = false;
-            } else {
-                document.getElementById(`${input.id}-invalid`).classList.remove("visible");
-            }
+    function validateLastName() {
+        const value = lastNameInput.value.trim();
+        const requiredMessage = document.getElementById("last-name-required");
+        const invalidMessage = document.getElementById("last-name-invalid");
+        const lengthMessage = document.getElementById("last-name-length");
+
+        // Reset visibility and label color
+        requiredMessage.classList.add("hidden");
+        invalidMessage.classList.add("hidden");
+        lengthMessage.classList.add("hidden");
+        toggleLabelError(lastNameInput, false);
+
+        // Show appropriate error messages
+        if (value === "") {
+            requiredMessage.classList.remove("hidden");
+            toggleLabelError(lastNameInput, true);
+        } else if (!namePattern.test(value)) {
+            invalidMessage.classList.remove("hidden");
+            toggleLabelError(lastNameInput, true);
+        } else if (value.length < 3) {
+            lengthMessage.classList.remove("hidden");
+            toggleLabelError(lastNameInput, true);
         }
 
-        if (input.id === "number" && value.length < 11) {
-            document.getElementById("phone-number-invalid").classList.add("visible");
-            allValid = false;
-        } else {
-            document.getElementById("phone-number-invalid").classList.remove("visible");
+        return value !== "" && namePattern.test(value) && value.length >= 3;
+    }
+
+    function validatePhone() {
+        const value = phoneInput.value.trim();
+        const requiredMessage = document.getElementById("phone-required");
+        const invalidMessage = document.getElementById("phone-number-invalid");
+
+        // Reset visibility and label color
+        requiredMessage.classList.add("hidden");
+        invalidMessage.classList.add("hidden");
+        toggleLabelError(phoneInput, false);
+
+        // Show appropriate error messages
+        if (value === "") {
+            requiredMessage.classList.remove("hidden");
+            toggleLabelError(phoneInput, true);
+        } else if (value.length < 11) {
+            invalidMessage.classList.remove("hidden");
+            toggleLabelError(phoneInput, true);
         }
 
-        if (input.id === "email" && !emailPattern.test(value)) {
-            document.getElementById("email-invalid").classList.add("visible");
-            allValid = false;
-        } else {
-            document.getElementById("email-invalid").classList.remove("visible");
+        return value !== "" && value.length >= 11;
+    }
+
+    function validateEmail() {
+        const value = emailInput.value.trim();
+        const requiredMessage = document.getElementById("email-required");
+        const invalidMessage = document.getElementById("email-invalid");
+
+        // Reset visibility and label color
+        requiredMessage.classList.add("hidden");
+        invalidMessage.classList.add("hidden");
+        toggleLabelError(emailInput, false);
+
+        // Show appropriate error messages
+        if (value === "") {
+            requiredMessage.classList.remove("hidden");
+            toggleLabelError(emailInput, true);
+        } else if (!emailPattern.test(value)) {
+            invalidMessage.classList.remove("hidden");
+            toggleLabelError(emailInput, true);
         }
 
-        if (input.id === "password" && !passwordPattern.test(value)) {
-            document.getElementById("password-invalid").classList.add("visible");
-            allValid = false;
+        return value !== "" && emailPattern.test(value);
+    }
+
+    function validatePassword() {
+        const value = passwordInput.value.trim();
+        const requiredMessage = document.getElementById("password-required");
+        const invalidMessage = document.getElementById("password-invalid");
+
+        // Reset visibility and label color
+        requiredMessage.classList.add("hidden");
+        invalidMessage.classList.add("hidden");
+        toggleLabelError(passwordInput, false);
+
+        // Show appropriate error messages
+        if (value === "") {
+            requiredMessage.classList.remove("hidden");
+            toggleLabelError(passwordInput, true);
+        } else if (!passwordPattern.test(value)) {
+            invalidMessage.classList.remove("hidden");
+            toggleLabelError(passwordInput, true);
+        }
+
+        return value !== "" && passwordPattern.test(value);
+    }
+
+    function validateDropdown() {
+        const countryError = document.getElementById("country-required");
+        const isCountrySelected = dropdownSelected.textContent.trim() !== "Choose Country";
+        countryError.classList.toggle("hidden", isCountrySelected);
+        return isCountrySelected;
+    }
+
+    // Validate all fields on form submit
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const isFirstNameValid = validateFirstName();
+        const isLastNameValid = validateLastName();
+        const isPhoneValid = validatePhone();
+        const isEmailValid = validateEmail();
+        const isPasswordValid = validatePassword();
+        const isCountryValid = validateDropdown();
+
+        if (isFirstNameValid && isLastNameValid && isPhoneValid && isEmailValid && isPasswordValid && isCountryValid && checkbox.checked) {
+            alert("Form submitted successfully!");
+            form.reset();
         } else {
-            document.getElementById("password-invalid").classList.remove("visible");
+            alert("Please fix the errors and try again.");
         }
     });
 
-    // Country dropdown validation
-    if (dropdownSelected.textContent === "Choose Country") {
-        countryRequiredMessage.classList.add("visible");
-        allValid = false;
-    } else {
-        countryRequiredMessage.classList.remove("visible");
-    }
+    // Dropdown functionality
+    dropdownSelected.addEventListener("click", function () {
+        dropdownOptions.style.display = dropdownOptions.style.display === "block" ? "none" : "block";
+    });
 
-    // Submit if all fields are valid
-    if (allValid) {
-        alert("Form submitted successfully!");
-        form.reset();
-    }
-});
+    dropdownOptions.addEventListener("click", function (event) {
+        const selectedItem = event.target.closest(".dropdown-item");
+        if (selectedItem) {
+            dropdownSelected.textContent = selectedItem.textContent.trim();
+            dropdownOptions.style.display = "none";
+        }
+    });
 
-// Dropdown functionality
-dropdownSelected.addEventListener("click", () => {
-    dropdownOptions.style.display = dropdownOptions.style.display === "block" ? "none" : "block";
-});
-
-dropdownOptions.addEventListener("click", (event) => {
-    const selectedItem = event.target.closest(".dropdown-item");
-    if (selectedItem) {
-        dropdownSelected.textContent = selectedItem.textContent.trim();
-        dropdownOptions.style.display = "none";
-        countryRequiredMessage.classList.remove("visible");
-    }
+    // Add real-time validation for inputs
+    firstNameInput.addEventListener("input", validateFirstName);
+    lastNameInput.addEventListener("input", validateLastName);
+    phoneInput.addEventListener("input", validatePhone);
+    emailInput.addEventListener("input", validateEmail);
+    passwordInput.addEventListener("input", validatePassword);
 });

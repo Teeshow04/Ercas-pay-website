@@ -94,6 +94,9 @@ body {
 .register-form {
     max-width: 720px;
 }
+.register-group {
+    margin-bottom: 20px;
+}
 .register-group label {
     display: block;
     margin-bottom: 7px;
@@ -102,6 +105,7 @@ body {
     font-size: 14px;
 }
 .register-input {
+    /* margin-bottom: 2px; */
     width: 78%;
     padding: 17px   8px;
     border: 1px solid #e0e0e0;
@@ -122,6 +126,7 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0; 
 }
+
 .register-input:focus {
     appearance: none;
     outline: none;
@@ -171,12 +176,15 @@ padding: 7px;
     display: none; 
 }
 
+
 .error-message {
+    bottom: 1px;
     color: #dc2626;
     font-size: 13px;
     margin-top: 5px;
     font-weight: 400;
     transition: opacity 0.3s ease;
+    line-height: 1.4;
 }
 .error-message.visible {
     display: block; 
@@ -224,7 +232,7 @@ padding: 7px;
     height: 30px;
     border-radius: 8px;
     background-color: transparent;
-    border: 2px solid  #007BFF;
+    border: 2px solid  #fff;
     cursor: pointer;
     transition: all 0.3s ease;
 
