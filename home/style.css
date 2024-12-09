@@ -30,7 +30,7 @@ header.default {
 }
 
 header.scrolled {
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(255, 255, 255, 0.815);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -41,8 +41,8 @@ header.scrolled {
     padding: 5px 20px;
     max-width: 1400px;
     margin:  10px   225px;
-    
 }
+
  .logo img { 
      width: 160px; 
     height: auto;
@@ -50,7 +50,7 @@ header.scrolled {
 
 .nav-toggle {
     display: none;
-    }
+}
 
 .toggle-btn {
     background: none;
@@ -59,11 +59,19 @@ header.scrolled {
     cursor: pointer;
 }
 
+.menu {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Let the menu take up available space */
+  justify-content: space-between; /* Space between .nav-links and .login */
+}
 .nav-links {
-    flex-grow: 1; 
+    display: flex;
+    flex: 1; /* Allow nav-links to take up the remaining space */
+    justify-content: center; /* Center the links horizontally */
 }
 
-  .nav-links  ul { 
+  .nav-links ul { 
     display: flex;
     list-style: none;
     justify-content: center;
@@ -321,6 +329,7 @@ header.scrolled {
      display: grid;
      grid-template-columns: 2fr   2fr;
      width: 100%;
+     height: auto;
      margin-top: 20px;
      align-items: left;
      justify-content: center;
@@ -580,9 +589,7 @@ width: 100%;
 @media (max-width: 768px) {
   header {
     position: fixed; 
-    padding: 5px 10px; 
-    /* top: 0; */
-  /* left: 0; */
+    padding: 5px 10px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.97);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -597,15 +604,13 @@ width: 100%;
     width: 100px;
     height: auto;
     margin: 20px 0  0 55px;
-    /* z-index: 1000; */
-    
    }
 
   .menu {
     display: none; 
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 80px;
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.97);
@@ -684,11 +689,106 @@ width: 100%;
  #absolute {
   display: none ;
  }
- .footer-main {
-     grid-template-columns: 1fr 1fr;
-     gap: 30px;
+ 
+ .container-two {
+  min-height: 2200px;
+  padding: 0 20px;
  }
+ .container-two-img-one img,
+ .container-two-img-two img{
+  width: 650px;
+ }
+ .title h1{
+  padding-top: 90px;
+ }
+ .currency-content,
+ .payment-link-content {
+  width: 650px;
+ }
+ .container-three h3{
+  font-size: 25px;
+  margin: 10px  20px  0  20px;
+  padding: 0  7px;
+  max-height: 1000px;
+ }
+ .container-three-flex {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align to the left */
+    max-height: 1500px;
+    margin-bottom: 500px;
 }
+
+ .circle-img{
+  display: none;
+ }
+  
+ .container-four {
+  margin-top: 500px;
+ }
+ .container-four h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+ }
+ .container-five {
+  margin-top: 100px;
+  min-height: 800px;
+ }
+ .container-five p{
+  font-size: 20px;
+ }
+ .media{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+ }
+ .media img {
+  width: 180px;
+ }
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin: 0 20px 30px 20px;
+    padding: 0 10px;
+  }
+
+  .footer-brand {
+    max-width: none;
+    width: auto;
+  }
+
+  .footer-brand img {
+    max-width: 60px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+  }
+
+  .footer-section h5 {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .footer-contact {
+    max-width: none;
+    width: auto;
+  }
+
+  .footer-border {
+    width: auto;
+  }
+
+  .footer-bottom p {
+    /* font-size: 13px; */
+    max-width: 100%;
+    padding: 30px 0;
+  }
+
+}
+
 
  
 @media (max-width: 480px) {
