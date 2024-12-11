@@ -201,7 +201,5 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add real-time validation for inputs
     firstNameInput.addEventListener("input", validateFirstName);
     lastNameInput.addEventListener("input", validateLastName);
-    phoneInput.addEventListener("input", validatePhone);
     emailInput.addEventListener("input", validateEmail);
-    passwordInput.addEventListener("input", validatePassword);
 });
