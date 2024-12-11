@@ -115,7 +115,7 @@ header.scrolled {
 /* the checkout container */
 .checkout-container {
   max-width: 1000px;
-  height: 1500px;
+  height: 750px;
   margin: 150px auto;
   padding: 20px;
   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
@@ -145,16 +145,12 @@ header.scrolled {
   border-radius: 35px;
   gap: 20px;
   padding: 15px 24px;
-  /* max-width: 100%;   */
 }
 
-.curency-input {
-  margin-left: 20px;
-}
 .currency-input label {
   display: block;
   margin-bottom: 10px;
-  font-weight: bold;
+  color: #333;
 }
 
 .currency-select {
@@ -178,17 +174,21 @@ header.scrolled {
   cursor: pointer;
 }
 
+.currency-option.active:after {
+  content: "✔"; /* Dynamically add the check icon */
+  font-size: 16px;
+  color: #ff6a00;
+  margin-left: auto;
+}
 .currency-option img {
   width: 23px; /* Adjust flag size */
   height: 15px;
   object-fit: cover; /* Ensure proper scaling */
   border-radius: 3px; 
 }
-
-.currency-option:hover {
-  background: #ffe4cc;
-  color: #e65c00;
-}
+ .currency-option:active .check-icon {
+  visibility: visible;
+ }
 
 .checkout-form {
   width: 70%;
@@ -232,6 +232,11 @@ input[type="number"]::-webkit-outer-spin-button {
   border-color: #ff6b00;
   box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.1);
 }
+
+.amount-input:disabled {
+  cursor: not-allowed;
+}
+
 .payment-form {
   background-color: #fff ;
   border: 1px solid #fff;
@@ -272,16 +277,16 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: background-color 0.3s  ease;
   margin-bottom: 10px;
 }
-.register-btn:hover {
+.pay-btn:hover {
   background-color: #e65100;
 }
 
-.register-btn:disabled {
+.pay-btn:disabled {
   background-color: #ddd;
   cursor: default;
 }
 
-.register-btn:disabled:hover {
+.pay-btn:disabled:hover {
   background-color: #ddd;
 }
 
@@ -289,6 +294,7 @@ input[type="number"]::-webkit-outer-spin-button {
 /* footer styling */
 .footer {
     background: #fff;
+    padding-top: 50px;
 } 
 
 .footer-container {

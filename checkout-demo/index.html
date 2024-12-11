@@ -10,6 +10,8 @@
 
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+  <link rel="icon" type="img/png" href="/Assets/favicon2.png">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -58,30 +60,28 @@
       <div class="currency-input">
         <label for="currency">Select Currency</label>
         <div class="currency-select">
-          <ul>
+          <ul id="currency-option">
             <li class="currency-option active" data-currency="NGN">
-              <img src="/Assets/ng.svg" alt="NGN Flag"> NGN  <span class="check-icon">✔</span>
+              <img src="/Assets/ng.svg" alt="NGN Flag"> NGN  
             </li>
             <li class="currency-option" data-currency="USD">
-              <img src="/Assets/us.svg" alt="US Flag"> USD
+              <img src="/Assets/us.svg" alt="US Flag"> USD  
             </li>
             <li class="currency-option" data-currency="GBP">
-              <img src="/Assets/gb.svg" alt="UK Flag"> GBP
+              <img src="/Assets/gb.svg" alt="UK Flag"> GBP  
             </li>
             <li class="currency-option" data-currency="EUR">
-              <img src="/Assets/eu.svg" alt="EU Flag"> EUR
-            </li>
+              <img src="/Assets/eu.svg" alt="EU Flag"> EUR  </li>
             <li class="currency-option" data-currency="CAD">
-              <img src="/Assets/ca.svg" alt="Canada Flag"> CAD
+              <img src="/Assets/ca.svg" alt="Canada Flag"> CAD  
             </li>
             <li class="currency-option" data-currency="GMD">
-              <img src="/Assets/gm.svg" alt="Gambia Flag"> GMD
-            </li>
+              <img src="/Assets/gm.svg" alt="Gambia Flag"> GMD  </li>
             <li class="currency-option" data-currency="GHS">
-              <img src="/Assets/gh.svg" alt="Ghana Flag"> GHS
+              <img src="/Assets/gh.svg" alt="Ghana Flag"> GHS  
             </li>
             <li class="currency-option" data-currency="KES">
-              <img src="/Assets/ke.svg" alt="Kenya Flag"> KES
+              <img src="/Assets/ke.svg" alt="Kenya Flag"> KES  
             </li>
           </ul>
         </div>
@@ -109,9 +109,10 @@
             <br><span class="error-message hidden" id="required">Required</span>
             <br><span class="error-message hidden" id="email-invalid">invalid email</span>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="">
             <label for="amount">Amount</label>
-            <input type="number" id="amount" name="amount" placeholder="100" value="100">
+            <input type="number" id="amount" class="amount-input" 
+            name="amount" placeholder="100" value="100" disabled>
           </div>
           <button type="submit" id="payButton" class="pay-btn">Pay NGN 100.00</button>
         </form>
@@ -119,7 +120,6 @@
     </div>
   </section>
 
-  <!-- footer section -->
    <!-- footer section -->
    <section class="footer">
     <div class="footer-container">
@@ -178,7 +178,6 @@
       </div>
     </div>
   </section>
-
+  <script src="app.js"></script>
 </body>
-
 </html>

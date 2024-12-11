@@ -214,7 +214,6 @@ padding: 7px;
 }
  
 /* acccept terms and codition */
-
 .terms-container {
     margin: 20px 0 70px ;
     font-size: 14px;
@@ -252,7 +251,7 @@ padding: 7px;
  .checkbox:checked::after { 
     content: "✔"; /* Unicode checkmark */
     font-size: 16px;
-padding: 3px ;
+    padding: 3px ;
     color: white; /* White checkmark */
     width: 100%;
     height: 100%;
