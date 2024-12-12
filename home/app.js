@@ -1,8 +1,9 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 const header = document.querySelector("header");
 const  navToggle = document.querySelector('.nav-toggle');
-  const navbar = document.querySelector('.navbar');
-  const menu = document.querySelector('.menu');
+const navbar = document.querySelector('.navbar');
+const menu = document.querySelector('.menu');
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {

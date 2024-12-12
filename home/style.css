@@ -612,7 +612,9 @@ width: 100%;
    }
 
   .menu {
-    display: none; 
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Initially above the screen */
+    transition: transform 0.2s ease; /* Smooth slide effect */
     flex-direction: column;
     position: absolute;
     top: 80px;
@@ -625,8 +627,9 @@ width: 100%;
     text-align: center;
   }
   .navbar.active .menu {
-    display: flex;
+    opacity: 1; 
     transform: translateY(0);
+    pointer-events: auto;
   }
   .menu ul {
     list-style: none;

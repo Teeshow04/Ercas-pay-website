@@ -1,33 +1,33 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector("header");
-    const  navToggle = document.querySelector('.nav-toggle');
-    const navbar = document.querySelector('.navbar');
-    const menu = document.querySelector('.menu');
-    const currencyOptions = document.querySelectorAll(".currency-option");
-    const amountInput = document.querySelector(".amount-input");
-    const payBtn = document.querySelector(".pay-btn");
-    const firstNameInput = document.getElementById("firstName");
-    const lastNameInput = document.getElementById("lastName");
-    const emailInput = document.getElementById("email");
+  const header = document.querySelector("header");
+  const navToggle = document.querySelector('.nav-toggle');
+  const navbar = document.querySelector('.navbar');
+  const menu = document.querySelector('.menu');
+  const currencyOptions = document.querySelectorAll(".currency-option");
+  const amountInput = document.querySelector(".amount-input");
+  const payBtn = document.querySelector(".pay-btn");
+  const firstNameInput = document.getElementById("firstName");
+  const lastNameInput = document.getElementById("lastName");
+  const emailInput = document.getElementById("email");
 
-    
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            header.classList.add("scrolled");
-            header.classList.remove("default");
-        } else {
-            header.classList.remove("scrolled");
-            header.classList.add("default");
-        }
-    });
-    
-    navToggle.addEventListener("click", () => {
-        navbar.classList.toggle("active");
-        menu.classList.toggle("active");
-      });
 
-      // Function to set the default state
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+      header.classList.remove("default");
+    } else {
+      header.classList.remove("scrolled");
+      header.classList.add("default");
+    }
+  });
+
+  navToggle.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+    menu.classList.toggle("active");
+  });
+
+  // Function to set the default state
   const setDefault = () => {
     const defaultCurrency = document.querySelector(".currency-option.active");
     if (defaultCurrency) {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   };
-        // Handle click events on currency options
+  // Handle click events on currency options
   currencyOptions.forEach(option => {
     option.addEventListener("click", () => {
 
@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
         payBtn.textContent = `Pay ${selectedCurrency} 5.00`;
       }
     });
-    });
-    
-     // Get error message spans
+  });
+
+  // Get error message spans
   const firstNameRequiredMessage = document.getElementById("first-name-required");
   const firstNameLengthMessage = document.getElementById("first-name-length");
 
