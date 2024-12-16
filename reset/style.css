@@ -8,8 +8,7 @@
 body {
     min-height: 100vh;
     background-color: #fff;
-    font-family: 'Roboto',
-       ' Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family:'poppins', sans-serif;
 }
 
 .reset-container {

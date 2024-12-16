@@ -7,9 +7,10 @@
   <title>ErcasPay Website</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-
   <!-- font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+  <link rel="icon" type="img/png" href="/Assets/favicon2.png">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -53,53 +54,110 @@
 
     <div class="pricing-content">
       <div class="pricing-nav">
-        <a href="#checkouts" class="active">Checkouts</a>
-        <a href="#payins">Pay-ins</a>
-        <a href="#settlement">Settlement</a>
+        <a href="#checkouts" class=" checkout-link active">Checkouts</a>
+        <a href="#payins" class="payins-link">Pay-ins</a>
+        <a href="#settlement" class="settlement-link">Settlement</a>
       </div>
-
-      <div class="pricing-grid">
-        <div class="card">
-          <h3>Cards</h3>
-          <div class="transaction">
-            <p>For International transactions</p>
-            <div class="rate">4.8%
-              <span class="capped">per transaction</span>
+      
+      
+        <div id="checkout">
+          <div class="card-grid">
+            <h2>Cards</h2>
+            <div class="flex">
+              <div class="card">
+                  <div class="card-rate">
+                    <p>For International transactions</p>
+                    <h3>
+                      4.8% <span class="capped">per transaction</span>
+                  </div>
+              </div>
+    
+              <div class="card">
+                  <div class="card-rate">
+                    <p>For Local transactions</p>
+                    <h3>
+                      1.4% <span class="capped">capped at<span class="amount"> ₦ 2000.00</span></span>
+                  </div>
+              </div>
             </div>
           </div>
-          <div class="card">
-            <div class="transaction">
-              <p>For Local transactions</p>
-              <div class="rate">1.4%
-                <span class="capped">capped at</span><span class="amount"> ₹2000.00</span>
+  
+          <div class="pricing">
+            <div class="pricing-info">
+              <h2>Bank Transfer</h2>
+              <div class="rate">
+                <h3>
+                  1.4% <span class="capped">capped at<span class="amount"> ₦ 2000.00</span></span>
+              </div>
+              </h3>
+            </div>
+  
+  
+            <div class="pricing-info">
+              <h2>QR Code</h2>
+              <div class="rate">
+                <h3>
+                  1.4% <span class="capped">capped at<span class="amount"> ₦ 2000.00</span></span>
+              </div>
+              </h3>
+            </div>
+  
+            <div class="pricing-info">
+              <h2>USSD Payment</h2>
+              <div class="rate">
+                <h3>1.4%
+                  <span class="capped">capped at <span class="amount"> ₦ 2000.00</span></span>
+                </h3>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="pricing">
+  
+        <div id="payins" style="display:none;">
           <div class="pricing-info">
-            <h3>Bank Transfer</h3>
-            <div class="rate">1.4%</div>
-            <span class="capped">capped at</span><span class="amount"> ₹2000.00</span>
+            <h2>Virtual Accounts</h2>
+            <div class="rate">
+              <h3>1.4%
+                <span class="capped">capped at <span class="amount"> ₦ 200.00</span></span>
+              </h3>
+            </div>
           </div>
-
+  
           <div class="pricing-info">
-            <h3>QR Code</h3>
-            <div class="rate">1.4%</div>
-            <span class="capped">capped at</span><span class="amount"> ₹2000.00</span>
-          </div>
-
-          <div class="pricing-info">
-            <h3>USSD Payment</h3>
-            <div class="rate">1.4%</div>
-            <span class="capped">capped at</span><span class="amount"> ₹2000.00</span>
+            <h2>Static QR</h2>
+            <div class="rate">
+              <h3>1.4%
+                <span class="capped">capped at <span class="amount"> ₦ 200.00</span></span>
+              </h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <span></span>All payments made in International currencies to ledger wallets will be deposited into USD wallet and a 10% rolling reserve on card transactions is held for 180 days, refundable if no chargebacks occur. Currency conversion is exclusively from USD wallet to NGN wallet.
-      </div>
+  
+        <div id="settlement" style="display: none;">
+          <div class="pricing-info">
+            <h2>Local</h2>
+            <div class="rate">
+              <h3>₦ 15
+                <span class="capped">flat rate</span>
+              </h3>
+            </div>
+          </div>
+    
+          <div class="pricing-info">
+            <h2>International</h2>
+            <div class="rate">
+              <h3>$ 20
+                <span class="capped">flat rate</span>
+              </h3>
+            </div>
+          </div>
+          
+        </div>
+      
+        <div class="note">
+        <div class="mark"><i>!</i></div>
+        <p>All payments made in International currencies to ledger wallets will be deposited into USD wallet <span>and a 10% rolling reserve on card transactions is held for 180 days, refundable if no chargebacks </span> <span>occur. Currency conversion is exclusively from USD wallet to NGN wallet</span>.</p>
+       </div>
     </div>
   </section>
 
@@ -161,7 +219,6 @@
       </div>
     </div>
   </section>
-
+  <script src="app.js"></script>
 </body>
-
 </html>
